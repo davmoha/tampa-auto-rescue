@@ -20,7 +20,7 @@ export function Header() {
           <span className="font-display text-primary italic">Rescue</span>
         </Link>
 
-        <div className="hidden gap-8 text-[11px] font-medium tracking-[0.2em] text-muted-foreground uppercase md:flex">
+        <div className="hidden gap-8 font-sans text-[11px] font-medium tracking-widest text-muted-foreground uppercase md:flex">
           {nav.map((item) => (
             <Link
               key={item.to}
