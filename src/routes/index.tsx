@@ -3,6 +3,8 @@ import { motion } from "motion/react";
 import { Reveal } from "@/components/site/Reveal";
 import { DispatchForm } from "@/components/site/DispatchForm";
 import { services, site } from "@/lib/site";
+import heroAsset from "@/assets/chris-roadside.png.asset.json";
+
 
 const title = "24/7 Roadside Assistance & Towing in Tampa | Tampa Auto Rescue";
 const description =
