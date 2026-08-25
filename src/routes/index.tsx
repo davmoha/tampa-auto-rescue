@@ -1,24 +1,214 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { motion } from "motion/react";
+import { Reveal } from "@/components/site/Reveal";
+import { DispatchForm } from "@/components/site/DispatchForm";
+import { services, site } from "@/lib/site";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "24/7 Roadside Assistance & Towing in Tampa | Tampa Auto Rescue";
+const description =
+  "Tampa Auto Rescue provides 24/7 towing, jump starts, lockouts, tire changes, fuel delivery and winch recovery across Tampa Bay. Average response 24 minutes.";
+
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AutoRepair",
+          name: site.name,
+          url: site.url,
+          telephone: site.phoneDisplay,
+          email: site.email,
+          areaServed: site.areas,
+          openingHours: "Mo-Su 00:00-23:59",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Tampa",
+            addressRegion: "FL",
+            addressCountry: "US",
+          },
+          makesOffer: services.map((s) => ({
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: s.title, description: s.description },
+          })),
+        }),
+      },
+    ],
+  }),
+  component: HomePage,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function HomePage() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <header className="relative overflow-hidden px-6 pt-24 pb-32">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-3xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="mb-8 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 font-mono text-[10px] text-primary"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+              </span>
+              AVERAGE RESPONSE: 24 MINS
+            </motion.div>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="mb-8 text-6xl leading-[0.9] font-bold tracking-tight text-balance md:text-8xl"
+            >
+              The Relief of{" "}
+              <span className="font-display font-normal text-primary italic">Arrival</span>.
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="mb-10 max-w-xl text-xl leading-relaxed text-muted-foreground"
+            >
+              Premium roadside support for the Tampa Bay area. Precise, professional, and
+              prepared for the unexpected.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col gap-4 sm:flex-row"
+            >
+              <a
+                href={site.phoneHref}
+                className="flex h-14 items-center justify-center bg-primary px-8 text-xs font-bold tracking-widest text-primary-foreground uppercase transition-all hover:brightness-110 active:scale-[0.98]"
+              >
+                Request Immediate Service
+              </a>
+              <Link
+                to="/fleet"
+                className="flex h-14 items-center justify-center border border-border px-8 text-xs font-bold tracking-widest uppercase transition-all hover:bg-foreground hover:text-background"
+              >
+                Fleet Contracts
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </header>
+
+      <section id="services" className="border-t border-border bg-surface/30 py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-16 flex items-end justify-between">
+            <h2 className="font-mono text-[11px] tracking-[0.3em] text-primary uppercase">
+              01 / Services
+            </h2>
+            <span className="text-xs text-muted-foreground">Available 24/7/365</span>
+          </div>
+
+          <div className="grid gap-px bg-border md:grid-cols-3">
+            {services.map((service, i) => (
+              <Reveal key={service.title} delay={i * 0.05}>
+                <div className="group relative h-full overflow-hidden bg-background p-8">
+                  <div className="absolute top-0 left-0 h-1 w-full origin-left scale-x-0 bg-primary transition-transform duration-500 group-hover:scale-x-100" />
+                  <span className="mb-12 block font-mono text-[10px] text-muted-foreground">
+                    TYPE: {service.type}
+                  </span>
+                  <h3 className="mb-4 text-2xl font-bold transition-colors group-hover:text-primary">
+                    {service.title}
+                  </h3>
+                  <p className="mb-8 text-sm leading-relaxed text-muted-foreground">
+                    {service.description}
+                  </p>
+                  <div className="font-mono text-[10px] opacity-0 transition-opacity group-hover:opacity-100">
+                    EST. ARRIVAL: {service.eta}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="px-6 py-32">
+        <div className="mx-auto grid max-w-7xl gap-24 md:grid-cols-2">
+          <div>
+            <Reveal>
+              <h2 className="mb-8 text-4xl font-bold tracking-tight">
+                Professional <span className="text-primary">Fleet</span> Partnerships
+              </h2>
+              <p className="mb-12 leading-relaxed text-muted-foreground">
+                Protect your business assets with priority dispatching. We offer custom
+                roadside solutions for Tampa-based delivery fleets, rental agencies, and
+                logistics providers.
+              </p>
+            </Reveal>
+            <div className="space-y-6">
+              <Reveal delay={0.05}>
+                <div className="flex cursor-default gap-4 border border-border bg-surface/20 p-4 transition-colors hover:bg-surface">
+                  <div className="grid size-12 place-items-center bg-primary/10 font-mono text-primary">
+                    A
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold">Dedicated Account Portals</h4>
+                    <p className="text-xs text-muted-foreground">
+                      Track service history and billing in real-time.
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <div className="flex cursor-default gap-4 border border-border bg-surface/20 p-4 transition-colors hover:bg-surface">
+                  <div className="grid size-12 place-items-center bg-primary/10 font-mono text-primary">
+                    B
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold">Priority Response Tiers</h4>
+                    <p className="text-xs text-muted-foreground">
+                      Your drivers are our first priority during peak hours.
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+              <Reveal delay={0.15}>
+                <div className="space-y-2 pt-6 font-mono text-[11px] tracking-widest text-muted-foreground uppercase">
+                  <p>
+                    Dispatch:{" "}
+                    <a href={site.phoneHref} className="text-primary hover:text-foreground">
+                      {site.phoneDisplay}
+                    </a>
+                  </p>
+                  <p>
+                    Email:{" "}
+                    <a
+                      href={`mailto:${site.email}`}
+                      className="text-primary hover:text-foreground"
+                    >
+                      {site.email}
+                    </a>
+                  </p>
+                  <p>Coverage: {site.areas}</p>
+                  <p>Hours: {site.hours}</p>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+
+          <Reveal delay={0.1}>
+            <DispatchForm />
+          </Reveal>
+        </div>
+      </section>
+    </>
   );
 }
