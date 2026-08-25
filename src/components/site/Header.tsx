@@ -60,7 +60,7 @@ export function Header() {
                 key={item.to}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                className="border-b border-border py-4 text-[11px] font-medium tracking-[0.2em] text-muted-foreground uppercase transition-colors last:border-b-0 hover:text-primary"
+                className="border-b border-border py-4 font-sans text-[11px] font-medium tracking-widest text-muted-foreground uppercase transition-colors last:border-b-0 hover:text-primary"
               >
                 {item.label}
               </Link>
