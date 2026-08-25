@@ -3,6 +3,8 @@ import { motion } from "motion/react";
 import { Reveal } from "@/components/site/Reveal";
 import { DispatchForm } from "@/components/site/DispatchForm";
 import { services, site } from "@/lib/site";
+import heroAsset from "@/assets/chris-roadside.png.asset.json";
+
 
 const title = "24/7 Roadside Assistance & Towing in Tampa | Tampa Auto Rescue";
 const description =
@@ -51,14 +53,14 @@ export const Route = createFileRoute("/")({
 function HomePage() {
   return (
     <>
-      <header className="relative overflow-hidden px-6 pt-24 pb-32">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-3xl">
+      <header className="relative overflow-hidden px-6 pt-16 pb-24">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+          <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="mb-8 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 font-mono text-[10px] text-primary"
+              className="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-accent px-3 py-1 font-mono text-[10px] text-accent-foreground"
             >
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
@@ -70,19 +72,19 @@ function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="mb-8 text-6xl leading-[0.9] font-bold tracking-tight text-balance md:text-8xl"
+              className="mb-6 text-5xl leading-[0.95] font-bold tracking-tight text-balance md:text-7xl"
             >
-              The Relief of{" "}
-              <span className="font-display font-normal text-primary italic">Arrival</span>.
+              24 Hour Roadside{" "}
+              <span className="font-display font-normal text-primary italic">Assistance</span>.
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="mb-10 max-w-xl text-xl leading-relaxed text-muted-foreground"
+              className="mb-10 max-w-xl text-lg leading-relaxed text-muted-foreground"
             >
-              Premium roadside support for the Tampa Bay area. Precise, professional, and
-              prepared for the unexpected.
+              Jump starts, tire changes, fuel delivery, lockouts and towing across Tampa Bay.
+              Anytime. Anywhere. We've got you covered.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -92,20 +94,36 @@ function HomePage() {
             >
               <a
                 href={site.phoneHref}
-                className="flex h-14 items-center justify-center bg-primary px-8 text-xs font-bold tracking-widest text-primary-foreground uppercase transition-all hover:brightness-110 active:scale-[0.98]"
+                className="flex h-14 items-center justify-center rounded-md bg-primary px-8 text-xs font-bold tracking-widest text-primary-foreground uppercase shadow-lg shadow-primary/20 transition-all hover:brightness-110 active:scale-[0.98]"
               >
-                Request Immediate Service
+                Call {site.phoneDisplay}
               </a>
               <Link
                 to="/fleet"
-                className="flex h-14 items-center justify-center border border-border px-8 text-xs font-bold tracking-widest uppercase transition-all hover:bg-foreground hover:text-background"
+                className="flex h-14 items-center justify-center rounded-md border border-border px-8 text-xs font-bold tracking-widest uppercase transition-all hover:bg-foreground hover:text-background"
               >
                 Fleet Contracts
               </Link>
             </motion.div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="relative"
+          >
+            <img
+              src={heroAsset.url}
+              alt="24 hour roadside assistance — jump starts, tire changes, fuel delivery and lockout service in Tampa"
+              className="w-full rounded-xl"
+              width={1404}
+              height={1122}
+            />
+          </motion.div>
         </div>
       </header>
+
 
       <section id="services" className="border-t border-border bg-surface/30 py-24">
         <div className="mx-auto max-w-7xl px-6">
