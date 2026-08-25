@@ -27,8 +27,6 @@ const stats = [
   { value: "2 COUNTIES", label: "Hillsborough and Pinellas coverage" },
 ];
 
-export default function noop() {}
-
 function AboutPage() {
   return (
     <section className="px-6 py-24">
