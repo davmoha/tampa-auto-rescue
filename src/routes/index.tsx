@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
+import { Phone } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { DispatchForm } from "@/components/site/DispatchForm";
 import { services, site } from "@/lib/site";
@@ -55,7 +56,22 @@ function HomePage() {
     <>
       <header className="relative overflow-hidden px-6 pt-16 pb-24">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
-          <div className="max-w-2xl">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="relative order-1"
+          >
+            <img
+              src={heroAsset.url}
+              alt="24 hour roadside assistance — jump starts, tire changes, fuel delivery and lockout service in Tampa"
+              className="w-full rounded-xl"
+              width={1404}
+              height={1122}
+            />
+          </motion.div>
+
+          <div className="order-2 max-w-2xl lg:ml-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -72,10 +88,9 @@ function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="mb-6 text-5xl leading-[0.95] font-bold tracking-tight text-balance md:text-7xl"
+              className="mb-6 font-display text-5xl leading-[0.95] font-bold tracking-tight text-balance text-foreground md:text-7xl"
             >
-              24 Hour Roadside{" "}
-              <span className="font-display font-normal text-primary italic">Assistance</span>.
+              24 Hour Roadside Assistance.
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -90,37 +105,23 @@ function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col gap-4 sm:flex-row"
+              className="flex flex-col items-center gap-4 sm:flex-row lg:justify-start"
             >
               <a
                 href={site.phoneHref}
-                className="flex h-14 items-center justify-center rounded-md bg-primary px-8 text-xs font-bold tracking-widest text-primary-foreground uppercase shadow-lg shadow-primary/20 transition-all hover:brightness-110 active:scale-[0.98]"
+                className="flex h-16 items-center justify-center gap-3 rounded-md bg-primary px-10 text-sm font-bold tracking-widest text-primary-foreground uppercase shadow-lg shadow-primary/20 transition-all hover:brightness-110 active:scale-[0.98]"
               >
+                <Phone className="h-5 w-5" aria-hidden="true" />
                 Call {site.phoneDisplay}
               </a>
               <Link
                 to="/fleet"
-                className="flex h-14 items-center justify-center rounded-md border border-border px-8 text-xs font-bold tracking-widest uppercase transition-all hover:bg-foreground hover:text-background"
+                className="flex h-14 items-center justify-center rounded-md border border-border px-8 text-xs font-bold tracking-widest uppercase text-foreground transition-all hover:bg-foreground hover:text-background"
               >
                 Fleet Contracts
               </Link>
             </motion.div>
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="relative"
-          >
-            <img
-              src={heroAsset.url}
-              alt="24 hour roadside assistance — jump starts, tire changes, fuel delivery and lockout service in Tampa"
-              className="w-full rounded-xl"
-              width={1404}
-              height={1122}
-            />
-          </motion.div>
         </div>
       </header>
 
