@@ -58,31 +58,6 @@ export function ServiceArt({ anchor }: { anchor: string }) {
         </svg>
       );
 
-    case "tire":
-      return (
-        <svg {...common}>
-          <g
-            stroke="currentColor"
-            strokeLinecap="round"
-            fill="none"
-            transform="rotate(-12 100 100)"
-          >
-            <path d="M-20 150 C 40 60, 120 190, 230 70" strokeWidth="34" opacity="0.5" />
-            <path
-              d="M-20 150 C 40 60, 120 190, 230 70"
-              strokeWidth="30"
-              strokeDasharray="6 16"
-              opacity="0.9"
-            />
-            <path
-              d="M-20 128 C 40 38, 120 168, 230 48"
-              strokeWidth="4"
-              strokeDasharray="14 12"
-              opacity="0.7"
-            />
-          </g>
-        </svg>
-      );
 
     case "fuel":
       return (
