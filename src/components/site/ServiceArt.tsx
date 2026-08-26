@@ -32,7 +32,7 @@ export function ServiceArt({ anchor }: { anchor: string }) {
       loading="lazy"
       className={`pointer-events-none absolute inset-0 m-auto object-contain opacity-[0.12] mix-blend-multiply grayscale transition-transform duration-700 group-hover:scale-110 ${
         isTowing
-          ? "h-56 w-56 md:h-72 md:w-72"
+          ? "h-64 w-64 md:h-80 md:w-80"
           : "h-44 w-44 md:h-56 md:w-56"
       }`}
     />
