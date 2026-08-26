@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
 import { DispatchForm } from "@/components/site/DispatchForm";
+import { FleetInquiry } from "@/components/site/FleetInquiry";
 import { site } from "@/lib/site";
 
 const title = "Fleet Roadside Contracts in Tampa | Tampa Auto Rescue";
@@ -84,6 +85,11 @@ function FleetPage() {
                 </Reveal>
               ))}
               <Reveal delay={0.3}>
+                <div className="pt-6">
+                  <FleetInquiry />
+                </div>
+              </Reveal>
+              <Reveal delay={0.35}>
                 <p className="pt-6 font-mono text-[11px] tracking-widest text-muted-foreground uppercase">
                   Fleet desk:{" "}
                   <a href={site.phoneHref} className="text-primary hover:text-foreground">

@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { Phone } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { DispatchForm } from "@/components/site/DispatchForm";
+import { FleetInquiry } from "@/components/site/FleetInquiry";
 import { ServiceCard } from "@/components/site/ServiceCard";
 
 import { services, site } from "@/lib/site";
@@ -187,6 +188,9 @@ function HomePage() {
                 </div>
               </Reveal>
               <Reveal delay={0.15}>
+                <FleetInquiry />
+              </Reveal>
+              <Reveal delay={0.2}>
                 <div className="space-y-2 pt-6 font-mono text-[11px] tracking-widest text-muted-foreground uppercase">
                   <p>
                     Dispatch:{" "}
