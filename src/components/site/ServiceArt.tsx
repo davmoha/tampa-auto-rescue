@@ -5,12 +5,41 @@
 export function ServiceArt({ anchor }: { anchor: string }) {
   const common = {
     className:
-      "pointer-events-none absolute inset-0 h-full w-full text-foreground/[0.07] transition-transform duration-700 group-hover:scale-105",
+      "pointer-events-none absolute -right-4 -bottom-6 h-44 w-44 text-foreground/[0.09] transition-transform duration-700 group-hover:scale-110 md:h-56 md:w-56",
     "aria-hidden": true as const,
     viewBox: "0 0 200 200",
     fill: "none" as const,
-    preserveAspectRatio: "xMidYMid slice" as const,
+    preserveAspectRatio: "xMidYMid meet" as const,
   };
+
+  if (anchor === "tire") {
+    return (
+      <svg
+        aria-hidden
+        viewBox="0 0 400 200"
+        fill="none"
+        preserveAspectRatio="none"
+        className="pointer-events-none absolute inset-0 h-full w-full text-foreground/[0.09] transition-transform duration-700 group-hover:scale-105"
+      >
+        <g stroke="currentColor" strokeLinecap="round" fill="none">
+          <path d="M-20 150 C 80 60, 240 190, 430 60" strokeWidth="34" opacity="0.45" />
+          <path
+            d="M-20 150 C 80 60, 240 190, 430 60"
+            strokeWidth="30"
+            strokeDasharray="6 16"
+            opacity="0.9"
+          />
+          <path
+            d="M-20 124 C 80 34, 240 164, 430 34"
+            strokeWidth="4"
+            strokeDasharray="14 12"
+            opacity="0.7"
+          />
+        </g>
+      </svg>
+    );
+  }
+
 
   switch (anchor) {
     case "battery":
