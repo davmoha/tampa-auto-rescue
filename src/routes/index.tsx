@@ -3,6 +3,8 @@ import { motion } from "motion/react";
 import { Phone } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { DispatchForm } from "@/components/site/DispatchForm";
+import { ServiceCard } from "@/components/site/ServiceCard";
+
 import { services, site } from "@/lib/site";
 import heroAsset from "@/assets/chris-roadside.png.asset.json";
 
@@ -129,35 +131,20 @@ function HomePage() {
       <section id="services" className="border-t border-border bg-surface/30 py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mb-16 flex items-end justify-between">
-            <h2 className="font-mono text-[11px] tracking-[0.3em] text-primary uppercase">
-              01 / Services
-            </h2>
+            <h2 className="text-3xl font-bold tracking-tight">Services</h2>
             <span className="text-xs text-muted-foreground">Available 24/7/365</span>
           </div>
 
-          <div className="grid gap-px bg-border md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-3">
             {services.map((service, i) => (
-              <Reveal key={service.title} delay={i * 0.05}>
-                <div className="group relative h-full overflow-hidden bg-background p-8">
-                  <div className="absolute top-0 left-0 h-1 w-full origin-left scale-x-0 bg-primary transition-transform duration-500 group-hover:scale-x-100" />
-                  <span className="mb-12 block font-mono text-[10px] text-muted-foreground">
-                    TYPE: {service.type}
-                  </span>
-                  <h3 className="mb-4 text-2xl font-bold transition-colors group-hover:text-primary">
-                    {service.title}
-                  </h3>
-                  <p className="mb-8 text-sm leading-relaxed text-muted-foreground">
-                    {service.description}
-                  </p>
-                  <div className="font-mono text-[10px] opacity-0 transition-opacity group-hover:opacity-100">
-                    EST. ARRIVAL: {service.eta}
-                  </div>
-                </div>
+              <Reveal key={service.title} delay={i * 0.05} className="h-full">
+                <ServiceCard service={service} />
               </Reveal>
             ))}
           </div>
         </div>
       </section>
+
 
       <section id="contact" className="px-6 py-32">
         <div className="mx-auto grid max-w-7xl gap-24 md:grid-cols-2">
