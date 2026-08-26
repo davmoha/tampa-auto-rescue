@@ -26,12 +26,8 @@ function ServicesPage() {
     <section className="px-6 py-24">
       <div className="mx-auto max-w-7xl">
         <Reveal>
-          <span className="font-mono text-[11px] tracking-[0.3em] text-primary uppercase">
-            01 / Services
-          </span>
           <h1 className="mt-6 mb-8 max-w-3xl text-5xl leading-[0.95] font-bold tracking-tight text-balance md:text-7xl">
-            Every roadside contingency,{" "}
-            <span className="font-display font-normal text-primary italic">covered</span>.
+            Every roadside contingency, covered.
           </h1>
           <p className="mb-16 max-w-xl leading-relaxed text-muted-foreground">
             One dispatch number for {site.county}. Live operators, transparent quotes
@@ -39,30 +35,14 @@ function ServicesPage() {
           </p>
         </Reveal>
 
-        <div className="grid gap-px bg-border md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2">
           {services.map((service, i) => (
-            <Reveal key={service.title} delay={i * 0.05}>
-              <div
-                id={service.slugAnchor}
-                className="group relative h-full overflow-hidden bg-background p-10"
-              >
-                <div className="absolute top-0 left-0 h-1 w-full origin-left scale-x-0 bg-primary transition-transform duration-500 group-hover:scale-x-100" />
-                <span className="mb-12 block font-mono text-[10px] text-muted-foreground">
-                  TYPE: {service.type}
-                </span>
-                <h2 className="mb-4 text-2xl font-bold transition-colors group-hover:text-primary">
-                  {service.title}
-                </h2>
-                <p className="mb-8 text-sm leading-relaxed text-muted-foreground">
-                  {service.description}
-                </p>
-                <div className="font-mono text-[10px] text-muted-foreground">
-                  EST. ARRIVAL: {service.eta}
-                </div>
-              </div>
+            <Reveal key={service.title} delay={i * 0.05} className="h-full">
+              <ServiceCard service={service} as="h2" padding="p-10" />
             </Reveal>
           ))}
         </div>
+
 
         <Reveal delay={0.1}>
           <a
