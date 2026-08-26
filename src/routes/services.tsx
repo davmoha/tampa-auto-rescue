@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
+import { ServiceCard } from "@/components/site/ServiceCard";
+
 import { services, site } from "@/lib/site";
 
 const title = "Roadside Services in Tampa — Towing, Jump Starts, Lockouts";
