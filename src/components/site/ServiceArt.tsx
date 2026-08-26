@@ -1,6 +1,7 @@
 import batteryArt from "@/assets/service-battery.jpg.asset.json";
 import fuelArt from "@/assets/service-fuel.jpg.asset.json";
 import lockoutArt from "@/assets/service-lockout.jpg.asset.json";
+import tireArt from "@/assets/service-tire.jpg.asset.json";
 import towingArt from "@/assets/service-towing.png.asset.json";
 import winchArt from "@/assets/service-winch.png.asset.json";
 
@@ -8,6 +9,7 @@ const artMap: Record<string, { url: string }> = {
   battery: batteryArt,
   fuel: fuelArt,
   lockout: lockoutArt,
+  tire: tireArt,
   towing: towingArt,
   winch: winchArt,
 };
