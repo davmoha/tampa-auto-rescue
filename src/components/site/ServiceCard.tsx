@@ -1,4 +1,6 @@
 import { motion } from "motion/react";
+import { Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 import type { Service } from "@/lib/site";
 import { ServiceArt } from "@/components/site/ServiceArt";
 
@@ -34,6 +36,14 @@ export function ServiceCard({
         <div className="font-mono text-[10px] text-muted-foreground">
           EST. ARRIVAL: {service.eta}
         </div>
+        {service.link && (
+          <Link
+            to={service.link}
+            className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold tracking-widest text-primary uppercase transition-colors hover:underline"
+          >
+            Learn more <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        )}
       </div>
     </motion.div>
   );

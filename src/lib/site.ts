@@ -26,6 +26,7 @@ export const services: Service[] = [
     description:
       "Flatbed recovery and local transport for all passenger vehicles and light trucks.",
     eta: "20-35 MIN",
+    link: "/towing",
   },
   {
     type: "TECHNICAL",
@@ -65,6 +66,7 @@ export const services: Service[] = [
     description:
       "Off-road extraction from sand, mud, or ditches with precision cable rigging.",
     eta: "45-60 MIN",
+    link: "/recovery",
   },
 ];
 
