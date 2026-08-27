@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
 import { site } from "@/lib/site";
-import badgeAsset from "@/assets/tampa-auto-rescue-badge.png.asset.json";
+import badgeAsset from "@/assets/tampa-auto-rescue-badge-clean.png.asset.json";
 
 const title = "About Tampa Auto Rescue — Local, Insured, 24/7";
 const description =
