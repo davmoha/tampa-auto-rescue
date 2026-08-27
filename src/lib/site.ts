@@ -15,6 +15,7 @@ export type Service = {
   slugAnchor: string;
   description: string;
   eta: string;
+  link?: string;
 };
 
 export const services: Service[] = [
