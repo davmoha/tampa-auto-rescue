@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { toast } from "sonner";
 import { site } from "@/lib/site";
+import { trackEvent } from "@/lib/analytics";
 
 const fieldClass =
   "w-full bg-background border border-border p-4 text-sm focus:border-primary outline-none transition-colors";
@@ -13,6 +14,16 @@ export function DispatchForm() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
+    const serviceType = String(new FormData(form).get("service") ?? "");
+    trackEvent("form_submit", {
+      form_name: "dispatch_request",
+      lead_type: "booking_intent",
+      service_type: serviceType,
+    });
+    trackEvent("booking_intent", {
+      form_name: "dispatch_request",
+      service_type: serviceType,
+    });
     setSubmitting(true);
     window.setTimeout(() => {
       setSubmitting(false);

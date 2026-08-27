@@ -2,6 +2,7 @@ import { useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { X } from "lucide-react";
 import { site } from "@/lib/site";
+import { trackEvent } from "@/lib/analytics";
 
 const fieldClass =
   "w-full bg-background border border-border rounded-md p-3 text-sm focus:border-primary outline-none transition-colors";
@@ -34,6 +35,15 @@ export function FleetInquiry() {
     const subject = encodeURIComponent(
       `Fleet Inquiry — ${get("company")}`.slice(0, 120),
     );
+    trackEvent("form_submit", {
+      form_name: "fleet_inquiry",
+      lead_type: "quote_intent",
+      company: get("company"),
+    });
+    trackEvent("quote_intent", {
+      form_name: "fleet_inquiry",
+      fleet_details: get("vehicles").slice(0, 100),
+    });
     const body = encodeURIComponent(lines.join("\n"));
     window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
     setOpen(false);
@@ -43,7 +53,13 @@ export function FleetInquiry() {
     <>
       <button
         type="button"
-        onClick={() => setOpen(true)}
+        onClick={() => {
+          trackEvent("quote_intent", {
+            form_name: "fleet_inquiry",
+            step: "open_form",
+          });
+          setOpen(true);
+        }}
         className="inline-flex h-14 items-center justify-center rounded-md bg-primary px-8 text-xs font-bold tracking-widest text-primary-foreground uppercase shadow-lg shadow-primary/20 transition-all hover:brightness-110 active:scale-[0.98]"
       >
         Learn More
