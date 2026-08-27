@@ -16,6 +16,7 @@ import { Route as FleetRouteImport } from './routes/fleet'
 import { Route as RecoveryRouteImport } from './routes/recovery'
 import { Route as RoadsideAssistanceRouteImport } from './routes/roadside-assistance'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TowingRouteImport } from './routes/towing'
 
 const IndexRoute = IndexRouteImport.update({
@@ -53,6 +54,11 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TowingRoute = TowingRouteImport.update({
   id: '/towing',
   path: '/towing',
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/recovery': typeof RecoveryRoute
   '/roadside-assistance': typeof RoadsideAssistanceRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/towing': typeof TowingRoute
 }
 export interface FileRoutesByTo {
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/recovery': typeof RecoveryRoute
   '/roadside-assistance': typeof RoadsideAssistanceRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/towing': typeof TowingRoute
 }
 export interface FileRoutesById {
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/recovery': typeof RecoveryRoute
   '/roadside-assistance': typeof RoadsideAssistanceRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/towing': typeof TowingRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/recovery'
     | '/roadside-assistance'
     | '/services'
+    | '/sitemap.xml'
     | '/towing'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/recovery'
     | '/roadside-assistance'
     | '/services'
+    | '/sitemap.xml'
     | '/towing'
   id:
     | '__root__'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/recovery'
     | '/roadside-assistance'
     | '/services'
+    | '/sitemap.xml'
     | '/towing'
   fileRoutesById: FileRoutesById
 }
@@ -131,6 +143,7 @@ export interface RootRouteChildren {
   RecoveryRoute: typeof RecoveryRoute
   RoadsideAssistanceRoute: typeof RoadsideAssistanceRoute
   ServicesRoute: typeof ServicesRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TowingRoute: typeof TowingRoute
 }
 
@@ -185,6 +198,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/towing': {
       id: '/towing'
       path: '/towing'
@@ -203,6 +223,7 @@ const rootRouteChildren: RootRouteChildren = {
   RecoveryRoute: RecoveryRoute,
   RoadsideAssistanceRoute: RoadsideAssistanceRoute,
   ServicesRoute: ServicesRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TowingRoute: TowingRoute,
 }
 export const routeTree = rootRouteImport
