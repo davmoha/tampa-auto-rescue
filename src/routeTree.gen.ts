@@ -13,7 +13,10 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as FleetRouteImport } from './routes/fleet'
+import { Route as RecoveryRouteImport } from './routes/recovery'
+import { Route as RoadsideAssistanceRouteImport } from './routes/roadside-assistance'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as TowingRouteImport } from './routes/towing'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -35,9 +38,24 @@ const FleetRoute = FleetRouteImport.update({
   path: '/fleet',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RecoveryRoute = RecoveryRouteImport.update({
+  id: '/recovery',
+  path: '/recovery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoadsideAssistanceRoute = RoadsideAssistanceRouteImport.update({
+  id: '/roadside-assistance',
+  path: '/roadside-assistance',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TowingRoute = TowingRouteImport.update({
+  id: '/towing',
+  path: '/towing',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -46,14 +64,20 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/faq': typeof FaqRoute
   '/fleet': typeof FleetRoute
+  '/recovery': typeof RecoveryRoute
+  '/roadside-assistance': typeof RoadsideAssistanceRoute
   '/services': typeof ServicesRoute
+  '/towing': typeof TowingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/faq': typeof FaqRoute
   '/fleet': typeof FleetRoute
+  '/recovery': typeof RecoveryRoute
+  '/roadside-assistance': typeof RoadsideAssistanceRoute
   '/services': typeof ServicesRoute
+  '/towing': typeof TowingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -61,14 +85,42 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/faq': typeof FaqRoute
   '/fleet': typeof FleetRoute
+  '/recovery': typeof RecoveryRoute
+  '/roadside-assistance': typeof RoadsideAssistanceRoute
   '/services': typeof ServicesRoute
+  '/towing': typeof TowingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/faq' | '/fleet' | '/services'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/faq'
+    | '/fleet'
+    | '/recovery'
+    | '/roadside-assistance'
+    | '/services'
+    | '/towing'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/faq' | '/fleet' | '/services'
-  id: '__root__' | '/' | '/about' | '/faq' | '/fleet' | '/services'
+  to:
+    | '/'
+    | '/about'
+    | '/faq'
+    | '/fleet'
+    | '/recovery'
+    | '/roadside-assistance'
+    | '/services'
+    | '/towing'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/faq'
+    | '/fleet'
+    | '/recovery'
+    | '/roadside-assistance'
+    | '/services'
+    | '/towing'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,7 +128,10 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   FaqRoute: typeof FaqRoute
   FleetRoute: typeof FleetRoute
+  RecoveryRoute: typeof RecoveryRoute
+  RoadsideAssistanceRoute: typeof RoadsideAssistanceRoute
   ServicesRoute: typeof ServicesRoute
+  TowingRoute: typeof TowingRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -109,11 +164,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FleetRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/recovery': {
+      id: '/recovery'
+      path: '/recovery'
+      fullPath: '/recovery'
+      preLoaderRoute: typeof RecoveryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roadside-assistance': {
+      id: '/roadside-assistance'
+      path: '/roadside-assistance'
+      fullPath: '/roadside-assistance'
+      preLoaderRoute: typeof RoadsideAssistanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/towing': {
+      id: '/towing'
+      path: '/towing'
+      fullPath: '/towing'
+      preLoaderRoute: typeof TowingRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -124,7 +200,10 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   FaqRoute: FaqRoute,
   FleetRoute: FleetRoute,
+  RecoveryRoute: RecoveryRoute,
+  RoadsideAssistanceRoute: RoadsideAssistanceRoute,
   ServicesRoute: ServicesRoute,
+  TowingRoute: TowingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

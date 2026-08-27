@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
 import { ServiceCard } from "@/components/site/ServiceCard";
 
@@ -31,9 +31,27 @@ function ServicesPage() {
           <h1 className="mt-6 mb-8 max-w-3xl text-5xl leading-[0.95] font-bold tracking-tight text-balance md:text-7xl">
             Every roadside contingency, covered.
           </h1>
-          <p className="mb-16 max-w-xl leading-relaxed text-muted-foreground">
+          <p className="mb-4 max-w-xl leading-relaxed text-muted-foreground">
             One dispatch number for {site.county}. Live operators, transparent quotes
             before a truck rolls, and equipment matched to your vehicle.
+          </p>
+          <p className="mb-16 max-w-xl text-sm text-muted-foreground">
+            Jump start, flat tire, or locked out?{" "}
+            <Link
+              to="/roadside-assistance"
+              className="font-bold text-primary hover:underline"
+            >
+              See 24-hour roadside assistance
+            </Link>
+            , or learn about{" "}
+            <Link to="/towing" className="font-bold text-primary hover:underline">
+              emergency towing
+            </Link>{" "}
+            and{" "}
+            <Link to="/recovery" className="font-bold text-primary hover:underline">
+              vehicle recovery
+            </Link>
+            .
           </p>
         </Reveal>
 
