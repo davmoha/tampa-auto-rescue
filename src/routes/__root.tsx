@@ -15,6 +15,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { MobileCallBar } from "@/components/site/MobileCallBar";
 import { Toaster } from "@/components/ui/sonner";
+import { initAnalytics, attachLinkTracking, trackPageView } from "@/lib/analytics";
 
 function NotFoundComponent() {
   return (
@@ -124,6 +125,20 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
+
+  useEffect(() => {
+    initAnalytics();
+    trackPageView(window.location.pathname);
+    const detachLinks = attachLinkTracking();
+    const unsubscribe = router.subscribe("onResolved", ({ toLocation }) => {
+      trackPageView(toLocation.pathname);
+    });
+    return () => {
+      detachLinks();
+      unsubscribe();
+    };
+  }, [router]);
 
   return (
     <QueryClientProvider client={queryClient}>
