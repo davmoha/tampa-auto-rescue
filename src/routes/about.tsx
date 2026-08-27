@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
 import { site } from "@/lib/site";
-import chrisPatch from "@/assets/chris-patch.jpg.asset.json";
 
 const title = "About Tampa Auto Rescue — Local, Insured, 24/7";
 const description =
@@ -32,27 +31,15 @@ function AboutPage() {
   return (
     <section className="px-6 py-24">
       <div className="mx-auto max-w-7xl">
-        <div className="flex items-start justify-between gap-8">
-          <Reveal>
-            <span className="font-mono text-[11px] tracking-[0.3em] text-primary uppercase">
-              02 / About
-            </span>
-            <h1 className="mt-6 mb-8 max-w-3xl text-5xl leading-[0.95] font-bold tracking-tight text-balance md:text-7xl">
-              Local operators who{" "}
-              <span className="font-display font-normal text-primary italic">show up</span>.
-            </h1>
-          </Reveal>
-          <Reveal delay={0.1} className="hidden shrink-0 sm:block">
-            <img
-              src={chrisPatch.url}
-              alt="Tampa Auto Rescue patch worn by owner Chris, featuring a tow truck"
-              width={180}
-              height={160}
-              loading="lazy"
-              className="w-36 rotate-2 rounded-xl shadow-lg ring-1 ring-border md:w-44"
-            />
-          </Reveal>
-        </div>
+        <Reveal>
+          <span className="font-mono text-[11px] tracking-[0.3em] text-primary uppercase">
+            02 / About
+          </span>
+          <h1 className="mt-6 mb-8 max-w-3xl text-5xl leading-[0.95] font-bold tracking-tight text-balance md:text-7xl">
+            Local operators who{" "}
+            <span className="font-display font-normal text-primary italic">show up</span>.
+          </h1>
+        </Reveal>
 
         <div className="grid gap-16 md:grid-cols-2">
           <Reveal delay={0.05}>
