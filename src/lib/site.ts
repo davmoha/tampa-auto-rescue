@@ -70,6 +70,15 @@ export const services: Service[] = [
   },
 ];
 
+export const cities = [
+  { name: "Tampa", lat: 27.9506, lng: -82.4572 },
+  { name: "Brandon", lat: 27.9378, lng: -82.2859 },
+  { name: "Ybor City", lat: 27.9614, lng: -82.4407 },
+  { name: "Riverview", lat: 27.8661, lng: -82.3265 },
+  { name: "Clearwater", lat: 27.9659, lng: -82.8001 },
+  { name: "St. Petersburg", lat: 27.7676, lng: -82.6403 },
+] as const;
+
 export const faqs = [
   {
     q: "How fast can Tampa Auto Rescue reach me?",

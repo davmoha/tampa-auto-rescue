@@ -1,12 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { Phone } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { DispatchForm } from "@/components/site/DispatchForm";
 import { FleetInquiry } from "@/components/site/FleetInquiry";
+import { ServiceAreaMap } from "@/components/site/ServiceAreaMap";
 import { ServiceCard } from "@/components/site/ServiceCard";
 
-import { services, site } from "@/lib/site";
+import { cities, services, site } from "@/lib/site";
 import heroAsset from "@/assets/chris-roadside.png.asset.json";
 
 
@@ -146,6 +147,37 @@ function HomePage() {
         </div>
       </section>
 
+      <section id="service-area" className="border-t border-border px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <Reveal>
+            <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+              Service <span className="text-primary">Area</span>
+            </h2>
+            <p className="mb-10 max-w-xl leading-relaxed text-muted-foreground">
+              Based in Tampa and covering {site.county}. Tap a marker on the map, or find
+              your city below — if you're nearby, call and we'll confirm coverage.
+            </p>
+          </Reveal>
+          <div className="grid items-start gap-10 lg:grid-cols-[1fr_2fr]">
+            <Reveal delay={0.05}>
+              <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-1">
+                {cities.map((city) => (
+                  <li
+                    key={city.name}
+                    className="flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-3 text-sm font-bold tracking-tight shadow-sm"
+                  >
+                    <MapPin className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                    {city.name}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <ServiceAreaMap />
+            </Reveal>
+          </div>
+        </div>
+      </section>
 
       <section id="contact" className="px-6 py-32">
         <div className="mx-auto grid max-w-7xl gap-24 md:grid-cols-2">
