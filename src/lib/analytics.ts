@@ -13,8 +13,9 @@ declare global {
   }
 }
 
-const measurementId = import.meta.env
-  .VITE_LOVABLE_CONNECTOR_GOOGLE_ANALYTICS_API_KEY as string | undefined;
+const measurementId = import.meta.env[
+  "VITE_LOVABLE_CONNECTOR_GOOGLE_ANALYTICS_API_KEY"
+] as string | undefined;
 
 export const analyticsEnabled = Boolean(measurementId);
 
@@ -94,7 +95,7 @@ export function attachLinkTracking(): () => void {
       trackEvent("call_click", {
         link_url: href,
         link_text: label,
-        location: anchor.dataset.analyticsLocation ?? "page",
+        location: anchor.dataset["analyticsLocation"] ?? "page",
       });
     } else if (href.startsWith("mailto:")) {
       trackEvent("email_click", { link_url: href, link_text: label });
