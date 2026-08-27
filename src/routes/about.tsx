@@ -35,10 +35,10 @@ function AboutPage() {
         <img
           src={badgeAsset.url}
           alt="Tampa Auto Rescue badge featuring Chris"
-          className="absolute top-0 right-0 z-10 w-28 h-28 object-contain md:w-44 md:h-44 lg:w-52 lg:h-52"
+          className="absolute top-0 right-0 z-10 w-36 h-36 object-contain md:w-56 md:h-56 lg:w-64 lg:h-64"
         />
         <Reveal>
-          <h1 className="mt-6 mb-8 max-w-3xl pr-32 text-5xl leading-[0.95] font-bold tracking-tight text-balance md:pr-48 md:text-7xl lg:pr-56">
+          <h1 className="mt-6 mb-8 max-w-3xl pr-40 text-5xl leading-[0.95] font-bold tracking-tight text-balance md:pr-60 md:text-7xl lg:pr-80">
             Local operators who{" "}
             <span className="font-display font-normal text-primary italic">show up</span>.
           </h1>
