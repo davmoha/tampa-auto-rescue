@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { Phone } from "lucide-react";
 import { site } from "@/lib/site";
 
 const nav = [
@@ -36,8 +37,10 @@ export function Header() {
         <div className="flex items-center gap-4">
           <a
             href={site.phoneHref}
-            className="hidden bg-foreground px-4 py-2 text-[11px] font-bold tracking-widest text-background uppercase transition-colors hover:bg-primary sm:inline-block"
+            aria-label={`Call dispatch at ${site.phoneDisplay}`}
+            className="hidden h-10 items-center gap-2 bg-foreground px-4 text-[11px] font-bold tracking-widest text-background uppercase transition-colors hover:bg-primary sm:inline-flex"
           >
+            <Phone className="h-4 w-4" aria-hidden="true" />
             Dispatch Now
           </a>
           <button
