@@ -38,9 +38,6 @@ function AboutPage() {
           className="absolute top-0 right-0 z-10 w-28 h-28 object-contain md:w-44 md:h-44 lg:w-52 lg:h-52"
         />
         <Reveal>
-          <span className="font-mono text-[11px] tracking-[0.3em] text-primary uppercase">
-            02 / About
-          </span>
           <h1 className="mt-6 mb-8 max-w-3xl pr-32 text-5xl leading-[0.95] font-bold tracking-tight text-balance md:pr-48 md:text-7xl lg:pr-56">
             Local operators who{" "}
             <span className="font-display font-normal text-primary italic">show up</span>.

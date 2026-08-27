@@ -46,9 +46,6 @@ function FaqPage() {
     <section className="px-6 py-24">
       <div className="mx-auto max-w-3xl">
         <Reveal>
-          <span className="font-mono text-[11px] tracking-[0.3em] text-primary uppercase">
-            04 / FAQ
-          </span>
           <h1 className="mt-6 mb-8 text-5xl leading-[0.95] font-bold tracking-tight text-balance md:text-6xl">
             Questions, answered{" "}
             <span className="font-display font-normal text-primary italic">plainly</span>.
