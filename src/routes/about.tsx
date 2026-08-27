@@ -35,7 +35,7 @@ function AboutPage() {
         <img
           src={badgeAsset.url}
           alt="Tampa Auto Rescue badge featuring Chris"
-          className="absolute top-0 right-0 z-10 w-28 h-28 object-contain drop-shadow-md md:w-44 md:h-44 lg:w-52 lg:h-52"
+          className="absolute top-0 right-0 z-10 w-28 h-28 object-contain md:w-44 md:h-44 lg:w-52 lg:h-52"
         />
         <Reveal>
           <span className="font-mono text-[11px] tracking-[0.3em] text-primary uppercase">
