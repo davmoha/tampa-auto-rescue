@@ -70,8 +70,8 @@ export function ServiceAreaMap() {
     window.__tarInitMap = init;
 
     if (!document.getElementById(SCRIPT_ID)) {
-      const key = import.meta.env.VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY;
-      const channel = import.meta.env.VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_TRACKING_ID;
+      const key = import.meta.env["VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_BROWSER_KEY"];
+      const channel = import.meta.env["VITE_LOVABLE_CONNECTOR_GOOGLE_MAPS_TRACKING_ID"];
       const script = document.createElement("script");
       script.id = SCRIPT_ID;
       script.src = `https://maps.googleapis.com/maps/api/js?key=${key}&loading=async&callback=__tarInitMap&channel=${channel}`;
