@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { motion } from "motion/react";
 import { Reveal } from "@/components/site/Reveal";
 import { site } from "@/lib/site";
 import badgeAsset from "@/assets/tampa-auto-rescue-badge-final.png.asset.json";
@@ -32,10 +33,14 @@ function AboutPage() {
   return (
     <section className="relative px-6 py-24">
       <div className="relative mx-auto max-w-7xl">
-        <img
+        <motion.img
           src={badgeAsset.url}
           alt="Tampa Auto Rescue badge featuring Chris"
           className="absolute top-0 right-0 z-10 w-[13.5rem] h-[13.5rem] object-contain md:w-[21rem] md:h-[21rem] lg:w-96 lg:h-96"
+          initial={{ opacity: 0, scale: 0.9, y: -20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          whileHover={{ scale: 1.05, rotate: 2 }}
         />
         <Reveal>
           <h1 className="mt-6 mb-8 max-w-3xl pr-56 text-5xl leading-[0.95] font-bold tracking-tight text-balance md:pr-[22rem] md:text-7xl lg:pr-[26rem]">
