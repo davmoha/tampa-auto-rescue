@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { motion } from "motion/react";
 import { Reveal } from "@/components/site/Reveal";
 import { site } from "@/lib/site";
 import badgeAsset from "@/assets/tampa-auto-rescue-badge-final.png.asset.json";
