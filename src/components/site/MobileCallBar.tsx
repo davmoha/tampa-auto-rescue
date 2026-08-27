@@ -1,3 +1,4 @@
+import { Phone } from "lucide-react";
 import { site } from "@/lib/site";
 
 export function MobileCallBar() {
