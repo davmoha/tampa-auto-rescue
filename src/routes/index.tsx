@@ -9,6 +9,7 @@ import { ServiceCard } from "@/components/site/ServiceCard";
 
 import { cities, services, site } from "@/lib/site";
 import heroAsset from "@/assets/chris-roadside.png.asset.json";
+import { lovableAssetUrl } from "@/lib/lovable-asset";
 
 
 const title = "24/7 Roadside Assistance & Towing in Tampa | Tampa Auto Rescue";
@@ -67,7 +68,7 @@ function HomePage() {
             className="relative order-1"
           >
             <img
-              src={heroAsset.url}
+              src={lovableAssetUrl(heroAsset)}
               alt="24 hour roadside assistance — jump starts, tire changes, fuel delivery and lockout service in Tampa"
               className="w-full rounded-xl"
               width={1404}

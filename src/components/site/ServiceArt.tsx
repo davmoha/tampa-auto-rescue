@@ -1,4 +1,5 @@
 import batteryArt from "@/assets/service-battery.jpg.asset.json";
+import { lovableAssetUrl } from "@/lib/lovable-asset";
 import fuelArt from "@/assets/service-fuel.jpg.asset.json";
 import lockoutArt from "@/assets/service-lockout.jpg.asset.json";
 import tireArt from "@/assets/service-tire.jpg.asset.json";
@@ -26,7 +27,7 @@ export function ServiceArt({ anchor }: { anchor: string }) {
 
   return (
     <img
-      src={art.url}
+      src={lovableAssetUrl(art)}
       alt=""
       aria-hidden
       loading="lazy"
