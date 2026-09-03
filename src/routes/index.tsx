@@ -67,7 +67,7 @@ function HomePage() {
             className="relative order-1"
           >
             <img
-              src={heroAsset.url}
+              src={heroImage}
               alt="24 hour roadside assistance — jump starts, tire changes, fuel delivery and lockout service in Tampa"
               className="w-full rounded-xl"
               width={1404}
