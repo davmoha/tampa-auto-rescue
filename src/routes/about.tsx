@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { Reveal } from "@/components/site/Reveal";
 import { site } from "@/lib/site";
-import badgeAsset from "@/assets/tampa-auto-rescue-badge-final.png.asset.json";
+import badgeImage from "@/assets/tampa-auto-rescue-badge-final.png";
 
 const title = "About Tampa Auto Rescue — Local, Insured, 24/7";
 const description =
@@ -34,7 +34,7 @@ function AboutPage() {
     <section className="relative px-6 py-24">
       <div className="relative mx-auto max-w-7xl">
         <motion.img
-          src={badgeAsset.url}
+          src={badgeImage}
           alt="Tampa Auto Rescue badge featuring Chris"
           className="absolute top-0 right-0 z-10 w-[13.5rem] h-[13.5rem] object-contain md:w-[21rem] md:h-[21rem] lg:w-96 lg:h-96"
           initial={{ opacity: 0, scale: 0.9, y: -20 }}
