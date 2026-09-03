@@ -1,11 +1,11 @@
-import batteryArt from "@/assets/service-battery.jpg.asset.json";
-import fuelArt from "@/assets/service-fuel.jpg.asset.json";
-import lockoutArt from "@/assets/service-lockout.jpg.asset.json";
-import tireArt from "@/assets/service-tire.jpg.asset.json";
-import towingArt from "@/assets/service-towing.png.asset.json";
-import winchArt from "@/assets/service-winch.png.asset.json";
+import batteryArt from "@/assets/service-battery.jpg";
+import fuelArt from "@/assets/service-fuel.jpg";
+import lockoutArt from "@/assets/service-lockout.jpg";
+import tireArt from "@/assets/service-tire.jpg";
+import towingArt from "@/assets/service-towing.png";
+import winchArt from "@/assets/service-winch.png";
 
-const artMap: Record<string, { url: string }> = {
+const artMap: Record<string, string> = {
   battery: batteryArt,
   fuel: fuelArt,
   lockout: lockoutArt,
@@ -26,7 +26,7 @@ export function ServiceArt({ anchor }: { anchor: string }) {
 
   return (
     <img
-      src={art.url}
+      src={art}
       alt=""
       aria-hidden
       loading="lazy"

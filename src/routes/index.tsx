@@ -8,7 +8,7 @@ import { ServiceAreaMap } from "@/components/site/ServiceAreaMap";
 import { ServiceCard } from "@/components/site/ServiceCard";
 
 import { cities, services, site } from "@/lib/site";
-import heroAsset from "@/assets/chris-roadside.png.asset.json";
+import heroImage from "@/assets/chris-roadside.png";
 
 
 const title = "24/7 Roadside Assistance & Towing in Tampa | Tampa Auto Rescue";
